@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  metacms_builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - FLUTTER_ENV=production
+    restart: unless-stopped
+
+volumes:
+  app_data:
+    driver: local
